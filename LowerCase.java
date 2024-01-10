@@ -23,10 +23,12 @@ public class LowerCase
 
             if ((ch >= 65) && (ch <= 90)) 
             {
+                //adding 32 to its ASCII value and converts to lowercase
                 LowerCase += (char) (ch + 32);
             }
             else 
             {
+                //adding 32 to its ASCII value and converts to lowercase
                 LowerCase += ch;
             }
         }
