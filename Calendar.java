@@ -1,7 +1,4 @@
-/** 
- * Prints the calendars of all the years in the 20th century.
- */
-public class Calendar1 
+public class Calendar
 {	
     // Starting the calendar on 1/1/1900
 	static int dayOfMonth = 1;   
@@ -16,34 +13,28 @@ public class Calendar1
 	 */
 	public static void main(String args[]) 
 	{
-		// Advances the date and the day-of-the-week from 1/1/1900 till 31/12/1999, inclusive.
-	    // Prints each date dd/mm/yyyy in a separate line. If the day is a Sunday, prints "Sunday".
-	    // The following variable, used for debugging purposes, counts how many days were advanced so far.
+        //Getting users input 
+        int GivenYear = Integer.parseInt(args[0]);
 	    int debugDaysCounter = 0; 
-		int SundayCounter = 0;
-		while (year != 2000) 
-		{
-			if (dayOfWeek == 1) 
-			{
-				System.out.println(dayOfMonth + "/" + month + "/" + year + " Sunday");
-			}
-
-			else 
-			{
-				System.out.println(dayOfMonth + "/" + month + "/" + year);
-			}
-
-			if (dayOfMonth == 1 && dayOfWeek == 1) 
-			{
-				SundayCounter++;
-			}
-
+		while (year != GivenYear ) 
+        {
 			advance();
 			debugDaysCounter++;
 		}
-		System.out.println("During the 20th century, " + SundayCounter + " Sundays fell on the first day of the month");
+        while (year <= GivenYear) 
+        {
+            if (dayOfWeek == 1) 
+            {
+				System.out.println(dayOfMonth + "/" + month + "/" + year + " Sunday");
+			}
+			else 
+            {
+				System.out.println(dayOfMonth + "/" + month + "/" + year);
+			}
+            advance();
+			debugDaysCounter++;
+		}   
     }
-	
 	 // Advances the date (day, month, year) and the day-of-the-week.
 	 // If the month changes, sets the number of days in this month.
 	 // Side effects: changes the static variables dayOfMonth, month, year, dayOfWeek, nDaysInMonth.
@@ -81,7 +72,6 @@ public class Calendar1
 		}
 		return false;
 	}
-	 
 	// Returns the number of days in the given month and year.
 	// April, June, September, and November have 30 days each.
 	// February has 28 days in a common year, and 29 days in a leap year.
